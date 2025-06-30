@@ -79,7 +79,7 @@ function Head() {
 
             {/* the info section */}
 
-            <div ref={info} className=" bg-[#111117] w-full absolute z-40 opacity-0 h-[180rem]">
+            <div ref={info} className=" bg-[#111117] w-full absolute z-40 opacity-0 h-[230rem]">
                 <Info/>
                 
             </div>
