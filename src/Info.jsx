@@ -23,6 +23,8 @@ function Info() {
     const intro = useRef(null);
     const textinfo = useRef(null);
     const vidref = useRef(null);
+    const imgrefbox = useRef(null);
+        const imgref = useRef(null);
 
     //Enlarge The Photo
     const [large,setlarge]=useState(false);
@@ -128,6 +130,28 @@ function Info() {
 
         })
         
+        gsap.to(".imgs", {
+            opacity: 1,
+            x:1,
+        
+            duration:0.5,
+            ease: "power1.inOut",
+            
+
+            scrollTrigger: {
+                trigger: imgrefbox.current,
+                start: "top 0",
+                end: "top -200",
+                markers: true,
+
+
+
+                scrub: true
+            },
+            onComplete: (() => { Remove(); })
+
+        })
+
 
 
 
@@ -173,20 +197,31 @@ function Info() {
                     
                     <img src="/hero2.webp" className=" h-full w-full object-cover z-[130] absolute" alt="" />
                 </div>
-                <div className=" bg-[#323953] flex flex-col col-end-2 py-20 lg:flex-row relative z-[120] border-2 border-yellow-500 h-[120rem] w-full left-0 right-0 ">
+                <div ref={imgrefbox} className=" bg-[#323953] grid grid-cols-1 md:grid-cols-2  md:gap-10 py-20 lg:flex-row relative z-[120] border-2 border-yellow-500 h-[120rem] w-full left-0 right-0 ">
 
-                    <div className=" flex md:items-end justify-center items-center md:justify-end  mt-5 md:m-20 h-[100vh] md:h-[50vh] w-full md:w-[50vw]">
+                    <div className=" imgs opacity-0 flex md:items-end justify-center items-center md:justify-end  mt-5 md:m-20 h-[100vh] md:h-[50vh] w-full md:w-[50vw]">
                     <div onClick={()=>{setlarge(!large)}} className=" h-[60%] md:h-[60vh] md:w-[50vw] w-[95%] flex   transition-all hover:scale-95 cursor-pointer hover:shadow-2xl hover:shadow-black hover:border-4 hover:border-amber-200"  >
                         <img src="/vidperson.webp" className=" object-cover h-full w-full " alt="" />
                     </div>
                     {large?<Large url="/vidperson.webp" state={setlarge}/>:null}  
                     </div>
                     
-                    <div className=" flex md:items-end justify-center items-center md:justify-end mt-0 md:mt-5 md:m-20 h-[100vh] md:h-[80vh] w-full md:w-[32vw]">
+                    <div className=" imgs opacity-0 ml-4 flex md:items-end justify-center items-center md:justify-end mt-0 md:mt-5 md:m-20 h-[100vh] md:h-[80vh] w-[95vw] md:w-[32vw]">
                     <div onClick={()=>{setlarge2(!large2)}} className=" h-[50%] md:h-[90vh] md:w-[50vw] w-[95%] flex   transition-all hover:scale-95 cursor-pointer hover:shadow-2xl hover:shadow-black hover:border-4 hover:border-amber-200"  >
                         <img src="/vidperson2.webp" className=" object-cover h-full w-full " alt="" />
                     </div>
                     {large2?<Large url="/vidperson2.webp" state={setlarge2}/>:null}  
+                    </div>
+
+                    <div className=" flex justify-center items-center w-[98vw] h-full">
+                    <div className=" flex items-center justify-center w-[90vw] h-[90vh]">
+                    <div onClick={()=>{}} className=" border-2 h-[100%] w-full flex  relative  transition-all hover:scale-95 cursor-pointer hover:shadow-2xl hover:shadow-black hover:border-4 hover:border-amber-200 hover:rotate-2"  >
+                        <img src="https://www.rockstargames.com/VI/_next/image?url=%2FVI%2F_next%2Fstatic%2Fmedia%2Fposter.eeb7fb93.jpg&w=1920&q=75" className=" object-cover h-full w-full " alt="" />
+                        <h1 className= " absolute z-[200] text-white font-extrabold text-7xl m-10">Leonida </h1>
+                    </div>
+                    
+                    
+                    </div>
                     </div>
 
                     
